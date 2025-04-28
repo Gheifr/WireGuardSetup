@@ -172,6 +172,7 @@ PersistentKeepalive = 25
 `scp -i ~/.ssh/твій_ключ user@server_IP:~/wireguard-configs/someones.png ~/Downloads/`
 
 
+
 #На стороні Oracle Cloud Computing
 Потрібно дозволити трафік по UPD, для цього:
 1. Залогінитись в панель керування, перейти до Computing, знайти потрібний інстанс
