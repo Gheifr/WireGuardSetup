@@ -9,6 +9,10 @@
 
 ```sudo apt install wireguard -y```
 
+> [!NOTE]
+> Ключ `-y` використовується для "Автоматично відповісти "так" на всі запити під час установки." для запитів apt на кшталт:
+`Потрібно встановити N пакетів. Продовжити? [Y/n]`
+
 3. Створити директорію для ключів (для впорядкування):
 
 ```mkdir ~/wireguard-keys```
@@ -160,3 +164,29 @@ PersistentKeepalive = 25
 ```qrencode -t ansiutf8 ~/wireguard-configs/для_кого.conf```
 
 
+#На стороні Oracle Cloud Computing
+Потрібно дозволити трафік по UPD, для цього:
+1. Залогінитись в панель керування, перейти до Computing, знайти потрібний інстанс
+
+![Search for instance](find_instance.png)
+
+2. В розділі Primary VNIC перейти в налаштування subnet:
+
+![Subnet lookup](find_subnet_settings.png)
+
+3. В налаштуваннях subnet перейти до Security Lists і зайти в дефолтний:
+
+![Security list](edit_default_s_list.png)
+
+4. Натиснути `Add Ingress Rule` і налаштувати його:
+- Source Type: `CIDR`
+- Source CIDR: `0.0.0.0/0` - дозволити весь трафік
+- IP Protocol: `UDP`
+- Source Port Range: `All` - залишити без змін, дозволити весь трафік з усіх портів
+- Destination Port Range: `nnnnn` - вказати порт, на якому слухає WireGuard 
+- Додати Description, щоб не забути, що це за запис
+- Натиснути Add Ingress Rule
+
+![Add rule](edit_default_s_list.png)
+
+5. Можливо, для застосування змін доведеться перезапустити інстанс.
