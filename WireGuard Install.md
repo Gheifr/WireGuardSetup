@@ -169,23 +169,22 @@ PersistentKeepalive = 25
 `sudo qrencode -o ~/wireguard-configs/someones.png -r ~/wireguard-configs/someones.conf`
 
 і скопіювати туди, де можна відкрити фото:
-`scp -i ~/.ssh/твій_ключ user@server_IP:~/wireguard-configs/someones.png ~/Downloads/`
+```scp -i ~/.ssh/твій_ключ user@server_IP:~/wireguard-configs/someones.png ~/Downloads/```
 
 
-
-#На стороні Oracle Cloud Computing
+# На стороні Oracle Cloud Computing
 Потрібно дозволити трафік по UPD, для цього:
 1. Залогінитись в панель керування, перейти до Computing, знайти потрібний інстанс
 
-![Search for instance](find_instance.png)
+![Search for instance](img/find_instance.png)
 
 2. В розділі Primary VNIC перейти в налаштування subnet:
 
-![Subnet lookup](find_subnet_settings.png)
+![Subnet lookup](img/find_subnet_settings.png)
 
 3. В налаштуваннях subnet перейти до Security Lists і зайти в дефолтний:
 
-![Security list](edit_default_s_list.png)
+![Security list](img/edit_default_s_list.png)
 
 4. Натиснути `Add Ingress Rule` і налаштувати його:
 - Source Type: `CIDR`
@@ -196,6 +195,6 @@ PersistentKeepalive = 25
 - Додати Description, щоб не забути, що це за запис
 - Натиснути Add Ingress Rule
 
-![Add rule](setup_ingress_rule.png)
+![Add rule](img/setup_ingress_rule.png)
 
 5. Можливо, для застосування змін доведеться перезапустити інстанс.
