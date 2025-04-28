@@ -134,6 +134,7 @@ AllowedIPs = 10.0.0.4/32
 [Interface]
 Address = 10.0.0.2/32
 PrivateKey = <peer_PRIVATE_key>
+DNS = 8.8.8.8
 
 [Peer]
 PublicKey = <server_PUBLIC_key>
