@@ -13,6 +13,7 @@
 ```umask 077```
 > [!NOTE]
 > umask встановлює режим створення файлів, подібно до chmod.
+
 ```wg genkey | tee ~/wireguard-keys/privatekey | wg pubkey > ~/wireguard-keys/publickey```
 5. Створити конфіг-файл сервера:
 > директорія
