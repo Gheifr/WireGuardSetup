@@ -162,7 +162,14 @@ PersistentKeepalive = 25
 
 - Згенерувати QR код:
 
-```qrencode -t ansiutf8 ~/wireguard-configs/для_кого.conf```
+```sudo cat ~/wireguard-configs/someones.conf | qrencode -t ansiutf8```
+
+Або створити картинку з кодом:
+
+`sudo qrencode -o ~/wireguard-configs/someones.png -r ~/wireguard-configs/someones.conf`
+
+і скопіювати туди, де можна відкрити фото:
+`scp -i ~/.ssh/твій_ключ user@server_IP:~/wireguard-configs/someones.png ~/Downloads/`
 
 
 #На стороні Oracle Cloud Computing
