@@ -52,7 +52,9 @@ PostDown = iptables -D FORWARD -i ens3 -o wg0 -j ACCEPT; \
            iptables -D FORWARD -i wg0 -j ACCEPT; \
            iptables -t nat -D POSTROUTING -o ens3 -j MASQUERADE; \
            iptables -D INPUT -i ens3 -p udp --dport 62120 -m state --state NEW,ESTABLISHED -j ACCEPT
+``` 
 > Але сервер може не зрозуміти багаторядковий запис, тому після перевірки можна додати у форматі однорядкового запису:
+``` 
 PostUp = iptables -I FORWARD -i ens3 -o wg0 -j ACCEPT; iptables -I FORWARD -i wg0 -j ACCEPT; iptables -t nat -A POSTROUTING -o ens3 -j MASQUERADE;sudo iptables -I INPUT -i ens3 -p udp --dport 62120 -m state --s>
 PostDown = iptables -D FORWARD -i ens3 -o wg0 -j ACCEPT; iptables -D FORWARD -i wg0 -j ACCEPT; iptables -t nat -D POSTROUTING -o ens3 -j MASQUERADE; sudo iptables -D INPUT -i ens3 -p udp --dport 62120 -m state >
 
