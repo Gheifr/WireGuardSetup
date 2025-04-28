@@ -13,7 +13,7 @@
 
 ```mkdir ~/wireguard-keys```
 
-- встановити права на директорію
+- встановити права на директорію:
 
 ```chmod 600 ~/wireguard-keys/*```
 
@@ -27,29 +27,29 @@
 ```wg genkey | tee ~/wireguard-keys/privatekey | wg pubkey > ~/wireguard-keys/publickey```
 
 5. Створити конфіг-файл сервера:
-- директорія
+- директорія:
 
 ```sudo mkdir -p /etc/wireguard```
 
-- створити файл конфігурації
+- створити файл конфігурації:
 
 ```sudo nano /etc/wireguard/wg0.conf```
 
 6. Дозволити порт в фаерволі:
-- якщо UFW активний
+- якщо UFW активний:
 
 ```sudo ufw allow 51820/udp```
 
 7. Увімкнути IP forwarding:
-- відкрити конфіг
+- відкрити конфіг:
 
 ```sudo nano /etc/sysctl.conf```
 
-- розкоментувати рядок
+- розкоментувати рядок:
 
 ```net.ipv4.ip_forward=1```
 
-- застосувати зміни
+- застосувати зміни:
 
 ```sudo sysctl -p```
 
