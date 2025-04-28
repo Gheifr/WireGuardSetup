@@ -187,6 +187,6 @@ PersistentKeepalive = 25
 - Додати Description, щоб не забути, що це за запис
 - Натиснути Add Ingress Rule
 
-
+![Add rule](setup_ingress_rule.png)
 
 5. Можливо, для застосування змін доведеться перезапустити інстанс.
